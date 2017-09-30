@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge">
+  <meta name="description" content="创投汇客服系统 - 世界一流客服服务平台，让工作更简单">
+  <!--确保适当的绘制和触屏缩放,设置 meta 属性为 user-scalable=no 可以禁用其缩放（zooming）功能-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>客服系统</title>
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel='stylesheet' href='/lib/bootstrap-3.3.7-dist/css/bootstrap.css'/>
+
+  <script type="text/javascript" src="/lib/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+  <include(input.head)/>
+</head>
+<style>
+  .navbar{
+    background-color: #126DB3;
+  }
+  .navbar-brand{
+    padding: 0;
+  }
+  .logo-img{
+    margin-top: 0;
+    margin-left: 10px;
+    width: 50px;
+    height: 50px;
+  }
+</style>
+<body>
+<!-- 导航条 start-->
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><img class="logo-img" src="/img/3648.png" alt="logo"></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<!-- 导航条 end -->
+
+<!-- 侧边导航栏 start -->
+<!--<aside class="nav-wrapper">-->
+  <!--<nav class="side-nav">-->
+    <!--<ul>-->
+      <!--<li>菜单一</li>-->
+      <!--<li>菜单二</li>-->
+      <!--<li>菜单三</li>-->
+      <!--<li>菜单四</li>-->
+      <!--<li>菜单五</li>-->
+    <!--</ul>-->
+  <!--</nav>-->
+<!--</aside>-->
+<!-- 侧边导航栏 end -->
+<include(input.body)/>
+</body>
+</html>

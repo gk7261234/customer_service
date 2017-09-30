@@ -1,0 +1,8 @@
+node_modules/
+logs/
+sessions/
+views/**/*.marko.js
+.idea/
+dist/
+.sass-cache/
+.DS_Store
