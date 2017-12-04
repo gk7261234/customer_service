@@ -1,0 +1,26 @@
+[
+    {
+        "id": "1",
+        "name": "sdfsdf",
+        "phone": "erdfs",
+        "channel": "网站",
+        "question": "sdfer",
+        "description": "sdfsdf",
+        "solution": "sdfersdfer",
+        "progress": "sdferwersdfa",
+        "remark": "sdfsdf",
+        "time": "16:28:29"
+    },
+    {
+        "id": "2",
+        "name": "的所发生的",
+        "phone": "是打发",
+        "channel": "网站",
+        "question": "是的发生的",
+        "description": "阿斯顿发",
+        "solution": "按时发大水",
+        "progress": "顺丰到付",
+        "remark": "是打发",
+        "time": "17:20:1"
+    }
+]

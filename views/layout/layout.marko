@@ -7,99 +7,47 @@
   <!--确保适当的绘制和触屏缩放,设置 meta 属性为 user-scalable=no 可以禁用其缩放（zooming）功能-->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>客服系统</title>
-  <link rel="shortcut icon" href="/favicon.ico" />
-  <link rel='stylesheet' href='/lib/bootstrap-3.3.7-dist/css/bootstrap.css'/>
-
+  <link rel="stylesheet" type="text/css" href="http://at.alicdn.com/t/font_436200_54knk9qzp1yeewmi.css">
+  <link rel="stylesheet" type="text/css" href="/css/layout.css">
+  <!--<link rel="shortcut icon" href="/favicon.ico" />-->
+  <!--<link rel='stylesheet' href='/lib/bootstrap-3.3.7-dist/css/bootstrap.css'/>-->
   <script type="text/javascript" src="/lib/jquery.min.js"></script>
-  <script type="text/javascript" src="/lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/js/common.js"></script>
+  <!--<script type="text/javascript" src="/lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>-->
   <include(input.head)/>
 </head>
-<style>
-  .navbar{
-    background-color: #126DB3;
-  }
-  .navbar-brand{
-    padding: 0;
-  }
-  .logo-img{
-    margin-top: 0;
-    margin-left: 10px;
-    width: 50px;
-    height: 50px;
-  }
-</style>
 <body>
-<!-- 导航条 start-->
 
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#"><img class="logo-img" src="/img/3648.png" alt="logo"></a>
+<!-- 侧边栏 start -->
+<aside class="side-wrapper">
+  <div class="logo-wrapper">
+    <img src="/img/3648.png" alt="logo" width="200" height="50">
+  </div>
+  <nav class="side-nav">
+    <div class="photo-wrapper">
+      <img class="head-photo" src="/img/jay.png" alt="head-photo" width="50" height="50">
+      <div class="user-name">Jay</div>
     </div>
+    <ul>
+      <li>菜单-1</li>
+      <li>菜单-2</li>
+      <li>菜单-3</li>
+      <li>菜单-4</li>
+      <li>菜单-5</li>
+      <li>菜单-6</li>
+    </ul>
+  </nav>
+</aside>
+<!-- 侧边栏 end -->
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Link</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
-      </ul>
-      <form class="navbar-form navbar-left">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+<!-- 导航条 start -->
+<nav class="navbar">
+  <a class="menu-icon" href="#"><i class="iconfont icon-zhedie-"></i></a>
+  <a class="logout-icon" href="#"><i class="iconfont icon-tuichu"></i>退出</a>
+  <a class="other-icon" href="#"><i class="iconfont icon-set"></i>设置</a>
+  <a class="other-icon" href="#"><i class="iconfont icon-service"></i>在线客服</a>
 </nav>
-
 <!-- 导航条 end -->
-
-<!-- 侧边导航栏 start -->
-<!--<aside class="nav-wrapper">-->
-  <!--<nav class="side-nav">-->
-    <!--<ul>-->
-      <!--<li>菜单一</li>-->
-      <!--<li>菜单二</li>-->
-      <!--<li>菜单三</li>-->
-      <!--<li>菜单四</li>-->
-      <!--<li>菜单五</li>-->
-    <!--</ul>-->
-  <!--</nav>-->
-<!--</aside>-->
-<!-- 侧边导航栏 end -->
 <include(input.body)/>
 </body>
 </html>

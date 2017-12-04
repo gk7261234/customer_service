@@ -1,0 +1,88 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html,body{
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+/*设置图标字体 start*/
+.iconfont {
+    font-size: 20px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+/*设置图标字体 end*/
+
+/*导航栏 start*/
+.navbar{
+    height: 50px;
+    max-height: 50px;
+    width: 100%;
+    background: #223B59;
+    padding-left:200px;
+    z-index: 10;
+    position: relative;
+    top: 0;
+    right:0;
+    clear: both;
+
+}
+.menu-icon{
+    float: left;
+    margin: 10px;
+}
+.logout-icon,.other-icon{
+    float: right;
+    margin: 10px;
+
+}
+a{
+    color: #fff;
+    text-decoration: none;
+}
+/*导航栏 end*/
+
+/*侧边栏 start*/
+.side-wrapper{
+    width: 200px;
+    height: 100%;
+    z-index: 20;
+    position: fixed;
+    top:0;
+    left:0;
+
+}
+
+.side-nav{
+    background: #223B59;
+    height: 100%;
+    overflow: hidden;
+    text-align: center;
+    color: #FFFFFF;
+}
+li{
+    list-style: none;
+    margin-top: 20px;
+}
+.logo-wrapper{
+    height: 50px;
+    background: #1CCA7C;
+}
+.photo-wrapper{
+    width: 200px;
+    height: 80px;
+}
+.head-photo{
+    margin-top: 20px;
+    border-radius: 25px;
+    vertical-align: middle;
+}
+.user-name{
+    color: red;
+}
+/*侧边栏 end*/

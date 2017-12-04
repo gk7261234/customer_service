@@ -1,0 +1,234 @@
+<include("../layout/layout.marko")>
+<@head>
+<link rel="stylesheet" href="/css/table.css"/>
+<script type="application/javascript" src="/js/common.js"></script>
+<script type="text/javascript" src="/js/page/record/list.js"></script>
+</@head>
+<@body>
+<!-- modal start -->
+<div id="modal-overlay">
+  <div class="modal-data">
+    <div class="close">
+      <i class="iconfont icon-close" onclick="modalshow()"></i>
+    </div>
+    <form onsubmit="return false">
+      <table>
+        <tbody>
+        <tr>
+          <td>访客ID：</td>
+          $ {
+          var id = 1;
+          if(data.noteList.length>0){
+          let i = data.noteList.length-1;
+          id = data.noteList[i].id;
+          id = parseInt(id) + 1;
+          }
+          }
+          <td><input type="text" name="user_id" value="${id}" disabled></td>
+          <td style="display: none;"><input type="text" name="status" disabled></td>
+        </tr>
+        <tr>
+          <td>访客姓名：</td>
+          <td><input type="text" name="user_name"></td>
+        </tr>
+        <tr>
+          <td>联系方式：</td>
+          <td><input type="text" name="user_mp" ></td>
+        </tr>
+        <tr>
+          <td>客服渠道：</td>
+          <td>
+            <select name="channel" id="channel">
+              <option value="网站" selected="selected">网站</option>
+              <option value="微信">微信</option>
+              <option value="妙生活">妙生活</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>反馈问题：</td>
+          <td><input type="text" name="question"></td>
+        </tr>
+        <tr>
+          <td>问题描述：</td>
+          <td><input type="text" name="description"></td>
+        </tr>
+        <!--<tr>-->
+          <!--<td>图片：</td>-->
+          <!--<td><input type="file" name="img"></td>-->
+        <!--</tr>-->
+        <tr>
+          <td>解决方案：</td>
+          <td><input type="text" name="solution" ></td>
+        </tr>
+        <tr>
+          <td>进展：</td>
+          <td><input type="text" name="progress"></td>
+        </tr>
+        <tr>
+          <td>备注：</td>
+          <td><input type="text" name="remark"></td>
+        </tr>
+        <tr>
+          <td><input type="reset" value="重置"></td>
+          <td><button id="submitBtn">提交</button></td>
+        </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+</div>
+<!-- modal end -->
+
+<!-- 内容 start -->
+<div class="container">
+  <!-- 功能栏 start -->
+  <div class="function-bar">
+    <button onclick="modalshow('add')">添加</button>
+    <button id="exportExcel">下载</button>
+    <div class="time">${data.fileName}</div>
+  </div>
+  <!-- 功能栏 end -->
+
+  <!-- 表格内容 start -->
+  <div class="container-table">
+    <div class="content">
+      <div class="title-table">记录日志</div>
+      <table>
+        <thead>
+        <tr>
+          <th>访客ID</th>
+          <th>访客姓名</th>
+          <th>联系方式</th>
+          <th>客服渠道</th>
+          <th>反馈问题</th>
+          <th>问题描述</th>
+          <!--<th>图片</th>-->
+          <th>解决方案</th>
+          <th>进展</th>
+          <th>备注</th>
+          <th>提交时间</th>
+          <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="tb" for(note in data.noteList) data-note="${JSON.stringify(note)}">
+          <td>${note.id}</td>
+          <td contentEditable="true">${note.name}</td>
+          <td>${note.phone}</td>
+          <td>${note.channel}</td>
+          <td>${note.question}</td>
+          <td>${note.description}</td>
+          <!--<td>这里应该放图片的</td>-->
+          <td>${note.solution}</td>
+          <td>${note.progress}</td>
+          <td>${note.remark}</td>
+          <td>${note.time}</td>
+          <td>
+            <button class="modify" data-id="${note.id}" data-info="${JSON.stringify(note)}">修改</button>
+            <button class="delete" data-id="${note.id}">删除</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+  <!-- 表格内容 end -->
+</div>
+<!-- 内容 end -->
+<script>
+  //下载文件
+  $("#exportExcel").click(function(){
+    var url =  "/note/download";
+    window.location = url;//这里不能使用get方法跳转，否则下载不成功
+  });
+
+  //删除数据
+  $(".delete").click(function () {
+    var file = GetQueryString('fileName');
+    var id = $(this).data("id");
+    $.ajax({
+      dataType: 'json',
+      url: '/note/_delete?file='+file+'&id='+id,
+      type: 'get',
+      success:function (data) {
+        location.reload();
+      },
+      error:function () {
+        location.reload();
+      }
+    })
+  });
+
+  $(".modify").click(function () {
+    var data = $(this).data('info');
+    $("input[name='user_id']").val(data.id);
+    $("input[name='user_name']").val(data.name);
+    $("input[name='user_mp']").val(data.phone);
+    $("#channel").val(data.channel);
+    $("input[name='question']").val(data.question);
+    $("input[name='description']").val(data.description);
+    $("input[name='solution']").val(data.solution);
+    $("input[name='progress']").val(data.progress);
+    $("input[name='remark']").val(data.remark);
+    modalshow('modify');
+  })
+
+  //验证提交数据
+  function validate(data) {
+    var len = 7;
+    if (data){
+      for (let i in data){
+        if (!data[i]){
+          len--;
+        }
+      }
+      return len==0?true:false;
+    }else {
+      return false;
+    }
+  }
+
+  //提交数据
+  $("#submitBtn").click(function () {
+    var status = $("input[name='status']").val();
+    var file = GetQueryString('fileName');
+    var id = $("input[name='user_id']").val();
+    var postDate = {
+      id:id,
+      name:$("input[name='user_name']").val(),
+      phone:$("input[name='user_mp']").val(),
+      channel: $("#channel").val(),
+      question:$("input[name='question']").val(),
+      description: $("input[name='description']").val(),
+      solution:$("input[name='solution']").val(),
+      progress: $("input[name='progress']").val(),
+      remark: $("input[name='remark']").val()
+    };
+    if (validate(postDate)){
+      alert("提交信息不能为空");
+      return;
+    }
+    var Url;
+    if (status == 'add'){
+      url = '/note/_save?file='+file+'&id='+id+'&action='+'add';
+    }else if(status == 'modify') {
+      url = '/note/_save?file='+file+'&id='+id+'&action='+'modify';
+    }
+    $.ajax({
+      dataType: 'json',
+      url: url,
+      type: 'POST',
+      data: postDate,
+      success: function(data) {
+        location.reload();
+      },
+      error: function() {
+        location.reload();
+      }
+    });
+  });
+</script>
+</@body>
+</include>

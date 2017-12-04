@@ -1,0 +1,45 @@
+<include("../layout/layout.marko")>
+<@head>
+<link rel="stylesheet" href="/css/table.css"/>
+<link rel="stylesheet" href="/css/tree.css">
+<script type="text/javascript" src="/js/page/record/list.js"></script>
+</@head>
+<style>
+  .content{
+    margin: 10px;
+    width: 70px;
+    height: 100px;
+    float: left;
+  }
+  .file-text{
+    margin-bottom: 20px;
+  }
+</style>
+<@body>
+<!-- 内容 start -->
+<div class="container">
+  <!-- 功能栏 start -->
+  <div class="function-bar">
+    <div class="title1">树视图</div>
+    <div class="title2">组件/树视图</div>
+  </div>
+  <!-- 功能栏 end -->
+
+  <!-- 表格内容 start -->
+  <div class="container-table">
+    <div class="content">
+      <div class="title-table">客服日志树</div>
+      <div class="content file" data-file="${file}" for(file in data.fileArr) ondblclick="location.href=`/note/?fileName=${file}`">
+        <img src="/img/icon/folder.png" alt="" width="70" height="70">
+        <div class="file-text">${file}</div>
+      </div>
+      <div class="content" ondblclick="location.href = `/note/`">
+        <img class="add-folder" src="/img/icon/add-folder.png" alt="" width="70" height="70">
+      </div>
+    </div>
+  </div>
+  <!-- 表格内容 end -->
+</div>
+<!-- 内容 end -->
+</@body>
+</include>
