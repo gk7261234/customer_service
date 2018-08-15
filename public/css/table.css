@@ -45,12 +45,17 @@
 
 }
 .content {
-    width: 100%;
+    display: inline-block;
+    /*width: 100%;*/
     height: 85%;
     background: #fff;
     border-radius: 3px;
     padding: 50px;
 }
+.wrapper__contetnt {
+    width: 100%;
+}
+
 .content table{
     margin-top: 20px;
     width: 100%;
